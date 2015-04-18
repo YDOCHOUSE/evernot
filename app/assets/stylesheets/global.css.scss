@@ -65,7 +65,7 @@ a {
 }
 
 header {
-	background: $tint;
+	background: white;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -78,8 +78,8 @@ header {
 			display: inline-block;
 			width: 10rem;
 			float: left;
-			color: white;
-			font-family: "Brandon Grotesque","Helvetica Neue", Helvetica, sans-serif;
+			color: $green;
+			font-family: "Brandon Grotesque","Helvetica", Arial, sans-serif;
 			font-size: 2.0rem;
 		}
 		nav {

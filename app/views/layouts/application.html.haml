@@ -1,21 +1,35 @@
 !!!
 %html
 %head
-	%title EVEREVERNOTE | Your Life's Work!
+	%title EVERNOT | Your Life's Work!
 	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
 	= javascript_include_tag 'application', 'data-turbolinks-track' => true 
 	= csrf_meta_tags
 %body
 	%header
 		.header_inner
-			= link_to "EVERNOT", root_path, id: "logo"
+			= link_to image_tag('evernote.svg'), root_path, id: "logo"
 			%nav
 				- if user_signed_in?
-					= link_to "Create Note", new_note_path
-					= link_to "Sign Out", destroy_user_session_path, method: :delete 
-
+					%button.js-menu-trigger.sliding-panel-button{:type => "button"}
+						%img{:alt => "Menu Icon", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/menu-white.png"}/
+					%nav.js-menu.sliding-panel-content
+						%ul
+							%li
+								= link_to "Create Note", new_note_path
+							%li
+								= link_to "Sign Out", destroy_user_session_path, method: :delete 
+					.js-menu-screen.sliding-panel-fade-screen
 				- else
-					= link_to "Log In", new_user_session_path
+					%button.js-menu-trigger.sliding-panel-button{:type => "button"}
+						%img{:alt => "Menu Icon", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/menu-white.png"}/
+					%nav.js-menu.sliding-panel-content
+						%ul
+							%li
+								= link_to "Log In", new_user_session_path
+							%li
+								= link_to "Sign Up", new_user_registration_path
+					.js-menu-screen.sliding-panel-fade-screen
 	%p.notice= notice
 	%p.alert= alert
 
