@@ -21,3 +21,5 @@ gem 'neat'
 
 
 gem 'spring',        group: :development
+
+gem 'rails_12factor', group: :production
